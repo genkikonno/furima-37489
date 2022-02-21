@@ -21,8 +21,9 @@
 | explanation        | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | condition_id       | integer    | null: false                    |
-| delivery-charge    | integer    | null: false                    |
-| delivery-date      | integer    | null: false                    |
+| delivery-charge_id | integer    | null: false                    |
+| delivery-area_id   | integer    | null: false                    |
+| delivery-date_id   | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 

@@ -19,10 +19,10 @@
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
 | explanation        | text       | null: false                    |
-| category           | string     | null: false                    |
-| condition          | string     | null: false                    |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
 | delivery-charge    | integer    | null: false                    |
-| delivery-date      | date       | null: false                    |
+| delivery-date      | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
@@ -30,14 +30,19 @@
 -has_one :purchases
 -belongs_to :users
 
-## purchase-listsテーブル
+## purchasesテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
 | item               | references | null: false, foreign_key: true |
-| cord-number        | string     | null: false                    |
-| expiration-date    | date       | null: false                    |
-| security-code      | string     | null: false                    |
+| destination        | references | null: false, foreign_ley: true |
+
+### Association
+-belongs_to :users
+-belongs_to :items
+-has_one :destinations
+
+## destinations
 | post-code          | string     | null: false                    |
 | prefectures        | string     | null: false                    |
 | city               | string     | null: false                    |
@@ -46,7 +51,6 @@
 | phone-number       | string     | null: false                    |
 
 ### Association
--belongs_to :users
--belongs_to :items
+-belongs_to :purchases
 
 

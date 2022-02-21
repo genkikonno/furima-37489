@@ -5,9 +5,9 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
 
-  describe "ユーザー新規登録" do
+  describe 'ユーザー新規登録' do
     context '新規登録できる場合' do
-      it "nicknameとemail、passwordとpassword_confirmation、frist_nameとlast_name、first_name_kanaとlast_name_kana、birth_dateが存在すれば登録できる" do
+      it 'nicknameとemail、passwordとpassword_confirmation、frist_nameとlast_name、first_name_kanaとlast_name_kana、birth_dateが存在すれば登録できる' do
         expect(@user).to be_valid
       end
     end
@@ -76,8 +76,8 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordが129文字以上では登録できない' do
-        @user.password =  Faker::Internet.password(min_length: 129)
-        @user.password_confirmation =  @user.password
+        @user.password = Faker::Internet.password(min_length: 129)
+        @user.password_confirmation = @user.password
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
       end

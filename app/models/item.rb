@@ -12,8 +12,8 @@ class Item < ApplicationRecord
   VALID_PRICE_REGEX = /\A[0-9]+\z/.freeze
   validates :price,
     presence: true,
-    format: { with: VALID_PRICE_REGEX, allow_blank: true },
-    numericality: { only_integer: true, message: "は半角数字でご入力下さい", greater_than_or_equal_to: 300, message: "は300以上でご入力下さい", less_than_or_equal_to: 9_999_999, message: "は9999999以下でご入力下さい", allow_blank: true }
+    format: { with: VALID_PRICE_REGEX },
+    numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, allow_blank: true }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

@@ -9,13 +9,13 @@ class Category < ActiveHash::Base
     { id: 7, name: '住まい' },
     { id: 8, name: '小物' },
     { id: 9, name: '本' },
-    { id: 10, name: '音楽' }
+    { id: 10, name: '音楽' },
     { id: 11, name: 'ゲーム' },
     { id: 12, name: 'おもちゃ' },
     { id: 13, name: 'ホビー' },
     { id: 14, name: 'グッズ' },
     { id: 15, name: '家電' },
-    { id: 16, name: 'スマホ' }
+    { id: 16, name: 'スマホ' },
     { id: 17, name: 'カメラ' },
     { id: 18, name: 'スポーツ' },
     { id: 19, name: 'レジャー' },

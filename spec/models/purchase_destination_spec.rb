@@ -25,7 +25,7 @@ RSpec.describe PurchaseDestination, type: :model do
       it 'post_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @purchase_destination.post_code = '1234567'
         @purchase_destination.valid?
-        expect(@purchase_destination.errors[:post_code]).to include("is invalid. Include hyphen(-)")
+        expect(@purchase_destination.errors[:post_code]).to include('is invalid. Include hyphen(-)')
       end
       it 'prefecture_idが---では保存できないこと' do
         @purchase_destination.prefecture_id = '---'
@@ -50,12 +50,12 @@ RSpec.describe PurchaseDestination, type: :model do
       it 'phone_numberが半角のハイフンを含まない正しい形式でないと保存できないこと' do
         @purchase_destination.phone_number = '123-4567-8901'
         @purchase_destination.valid?
-        expect(@purchase_destination.errors[:phone_number]).to include("is invalid. Not include hyphen(-)")
+        expect(@purchase_destination.errors[:phone_number]).to include('is invalid. Not include hyphen(-)')
       end
       it 'phone_numberが半角の数字の10桁未満では保存できないこと' do
         @purchase_destination.phone_number = '12345689'
         @purchase_destination.valid?
-        expect(@purchase_destination.errors[:phone_number]).to include("is invalid. Not include hyphen(-)")
+        expect(@purchase_destination.errors[:phone_number]).to include('is invalid. Not include hyphen(-)')
       end
       it 'userが紐付いていないと保存できないこと' do
         @purchase_destination.user_id = nil
@@ -67,7 +67,7 @@ RSpec.describe PurchaseDestination, type: :model do
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Item can't be blank")
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @purchase_destination.token = nil
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include("Token can't be blank")

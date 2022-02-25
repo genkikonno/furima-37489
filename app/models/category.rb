@@ -19,7 +19,9 @@ class Category < ActiveHash::Base
     { id: 17, name: 'カメラ' },
     { id: 18, name: 'スポーツ' },
     { id: 19, name: 'レジャー' },
-    { id: 20, name: 'ハンドメイド' }
+    { id: 20, name: 'ハンドメイド' },
+    { id: 21, name: 'その他' }
+    
   ]
   include ActiveHash::Associations
   has_many :items

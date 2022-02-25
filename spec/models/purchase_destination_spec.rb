@@ -3,7 +3,12 @@ require 'rails_helper'
 RSpec.describe PurchaseDestination, type: :model do
   describe '購入情報の保存' do
     before do
-      @purchase_destination = FactoryBot.build(:purchase_destination)
+      user = FactoryBot.create(:user)
+      item = FactoryBot.create(:item)
+      @user = FactoryBot.build(:user)
+      @item = FactoryBot.build(:item, user_id: user)
+      @purchase_destination = FactoryBot.build(:purchase_destination, user_id: user, item_id: item)
+      sleep 0.1
     end
 
     context '内容に問題ない場合' do
@@ -54,6 +59,11 @@ RSpec.describe PurchaseDestination, type: :model do
       end
       it 'phone_numberが半角の数字の10桁未満では保存できないこと' do
         @purchase_destination.phone_number = '12345689'
+        @purchase_destination.valid?
+        expect(@purchase_destination.errors[:phone_number]).to include('is invalid. Not include hyphen(-)')
+      end
+      it 'phone_numberが半角の数字の12桁以上では保存できないこと' do
+        @purchase_destination.phone_number = '123456891234'
         @purchase_destination.valid?
         expect(@purchase_destination.errors[:phone_number]).to include('is invalid. Not include hyphen(-)')
       end

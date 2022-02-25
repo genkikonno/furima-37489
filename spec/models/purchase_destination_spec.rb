@@ -31,7 +31,7 @@ RSpec.describe PurchaseDestination, type: :model do
         expect(@purchase_destination.errors[:post_code]).to include('is invalid. Include hyphen(-)')
       end
       it 'prefecture_idが---では保存できないこと' do
-        @purchase_destination.prefecture_id = '---'
+        @purchase_destination.prefecture_id = '1'
         @purchase_destination.valid?
         expect(@purchase_destination.errors[:prefecture_id]).to include("can't be blank")
       end
